@@ -33,13 +33,21 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Create docs directory
+        run: mkdir -p docs
+
+      - name: Move build to docs
+        run: |
+          cp -r dist/* docs/
+          cp index.html docs/
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "./dist"
+          path: "./docs"
 
   deploy:
     environment:

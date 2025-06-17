@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   base: '/task-management/', // Replace with your repository name
   build: {
-    outDir: 'dist',
+    outDir: 'docs',
     assetsDir: 'assets',
     sourcemap: true,
   },
