@@ -1,0 +1,279 @@
+.todoItem {
+  display: flex;
+  align-items: flex-start;
+  padding: 1rem;
+  background: var(--card-bg);
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.todoItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.todoContent {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0; /* Prevents flex item from overflowing */
+  gap: 0.5rem;
+}
+
+.checkbox {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 0.25rem;
+  border: 2px solid rgb(22, 23, 99);
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.checkbox:checked {
+  background-color: var(--primary-color);
+}
+
+.checkbox:checked::after {
+  content: '✓';
+  position: absolute;
+  color: rgb(127, 121, 180);
+  font-size: 0.875rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.todoText {
+  flex: 1;
+  min-width: 0; /* Prevents text from overflowing */
+  font-size: 1rem;
+  color: var(--text-color);
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+.todoText.completed {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.todoControls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+  flex-wrap: wrap;
+}
+
+.todoDate {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.todoActions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.editButton,
+.deleteButton {
+  background: none;
+  border: none;
+  padding: 0.25rem;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.editButton:hover {
+  color: var(--primary-color);
+}
+
+.deleteButton:hover {
+  color: var(--error-color);
+}
+
+.editButton svg,
+.deleteButton svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 640px) {
+  .todoItem {
+    padding: 0.75rem;
+  }
+
+  .todoContent {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .todoControls {
+    width: 100%;
+    margin-left: 0;
+    justify-content: space-between;
+  }
+
+  .todoDate {
+    order: 1;
+  }
+
+  .todoActions {
+    order: 2;
+  }
+
+  .todoText {
+    font-size: 0.9375rem;
+  }
+}
+
+.todoItem::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(45deg, #4a90e2, #357abd);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.todoItem:hover::before {
+  opacity: 1;
+}
+
+.completed {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.completed .text {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.text {
+  flex: 1;
+  font-size: 1.1rem;
+  color: #2c3e50;
+  word-break: break-word;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.editInput {
+  flex: 1;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  margin-right: 1rem;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.editInput:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+  outline: none;
+}
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-left: 1rem;
+}
+
+.editButton,
+.deleteButton {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.editButton {
+  background: linear-gradient(45deg, #4a90e2, #357abd);
+  color: white;
+}
+
+.editButton:hover {
+  background: linear-gradient(45deg, #357abd, #2c6aa0);
+  transform: translateY(-1px);
+}
+
+.deleteButton {
+  background: linear-gradient(45deg, #e74c3c, #c0392b);
+  color: white;
+}
+
+.deleteButton:hover {
+  background: linear-gradient(45deg, #c0392b, #a93226);
+  transform: translateY(-1px);
+}
+
+.timestamp {
+  font-size: 0.85rem;
+  color: #7f8c8d;
+  margin-left: 1rem;
+  font-style: italic;
+}
+
+.priority {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  padding: 0.25rem 0.75rem;
+  
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.priorityHigh {
+  background: rgba(231, 76, 60, 0.1);
+  color: #e74c3c;
+}
+
+.priorityMedium {
+  background: rgba(241, 196, 15, 0.1);
+  color: #f39c12;
+}
+
+.priorityLow {
+  background: rgba(46, 204, 113, 0.1);
+  color: #27ae60;
+}
+
+.category {
+  position: absolute;
+  bottom: 0.2rem;
+  right: 1rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: rgba(74, 144, 226, 0.1);
+  color: #4a90e2;
+} 
