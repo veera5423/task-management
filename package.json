@@ -1,13 +1,16 @@
 {
-  "name": "todoapp",
+  "name": "task-management",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://veera5423.github.io/b/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -21,6 +24,7 @@
     "eslint": "^8.56.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "gh-pages": "^6.1.1",
     "globals": "^16.0.0",
     "typescript": "^5.3.3",
     "typescript-eslint": "^8.30.1",
