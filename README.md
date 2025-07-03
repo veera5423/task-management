@@ -2,7 +2,7 @@
 
 A modern, feature-rich task management application built with React and TypeScript. This application helps you manage your tasks efficiently with a beautiful user interface and powerful features.
 
-![Task Management Screenshot](screenshot.png)
+[[live](https://veera5423.github.io/task-management/)]
 
 ## ✨ Features
 
